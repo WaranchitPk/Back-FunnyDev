@@ -7,7 +7,7 @@ const mysql = require('mysql');
 const mysqlConnection = require('express-myconnection');
 import {dbOptions} from './config';
 const app = express();
-const PORT = 8888;
+const PORT = 8889;
 app.use(compression());
 
 app.use(cors());
@@ -17,13 +17,16 @@ app.use(bodyParser.urlencoded({
 }));
 //connect DB
 app.use(mysqlConnection(mysql,dbOptions,'pool'));
+
 MainRoutes(app);
+
 //check Connection Db
 // const con = mysql.createConnection(dbOptions);
 // con.connect((err) =>{
 //     if  (err) throw err;
 //     console.log('connected success')
 // });
+
 
 
 // test(app);
