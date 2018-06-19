@@ -1,16 +1,11 @@
-
+import Model from './model';
 
 const CourseController = {
-    find(req,res){
-        res.send({
-            msg: 'This is Course'
-        })
+    findNameCampus(req,res){
+        Model.findNameCampus(req,res);
     },
-    findById(req,res){
-        const {params: {id}} = req;
-        res.send({
-            msg: id
-        })
+    findSumCoursesByCampus(req,res){
+        Model.findSumCoursesByCampus(req,res)
     }
 };
 

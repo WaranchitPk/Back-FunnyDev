@@ -1,7 +1,6 @@
 import Controller from './controllers';
 
 export const routes = (str,app) =>{
-    app.get(`${str}/`,Controller.find);
-    app.get(`${str}/:id`,Controller.findById);
-    app.post(`${str}`);
+    app.get(`${str}/`,Controller.findNameCampus);
+    app.get(`${str}/sum_courses`,Controller.findSumCoursesByCampus);
 };
