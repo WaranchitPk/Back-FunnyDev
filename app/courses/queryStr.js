@@ -57,3 +57,5 @@ export const findCourseEachFaculty_Str = 'SELECT\n' +
     '(SELECT SUM(coursecount) FROM mdl_course_categories WHERE path LIKE \'/7/9%\') AS SUM_Scient_LP,\n' +
     '(SELECT name FROM mdl_course_categories WHERE path LIKE \'/7/10\') AS Name_Engineer_LP,\n' +
     '(SELECT SUM(coursecount) FROM mdl_course_categories WHERE path LIKE \'/7/10%\') AS SUM_Engineer_LP\n'
+
+    

@@ -7,7 +7,7 @@ const mysql = require('mysql');
 const mysqlConnection = require('express-myconnection');
 import {dbOptions} from './config';
 const app = express();
-const PORT = 8889;
+const PORT = 9000;
 app.use(compression());
 
 app.use(cors());
@@ -20,12 +20,15 @@ app.use(mysqlConnection(mysql,dbOptions,'pool'));
 
 MainRoutes(app);
 
-//check Connection Db
-// const con = mysql.createConnection(dbOptions);
-// con.connect((err) =>{
-//     if  (err) throw err;
-//     console.log('connected success')
-// });
+app.get('/',(req,res) =>{
+    res.send('Hello')
+})
+// check Connection Db
+const con = mysql.createConnection(dbOptions);
+con.connect((err) =>{
+    if  (err) throw err;
+    console.log('connected success')
+});
 
 
 

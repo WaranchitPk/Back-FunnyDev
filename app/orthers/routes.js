@@ -1,4 +1,4 @@
 import Controller from './controllers';
-export const routes = (str,app) =>{
-    app.get(`${str}`,Controller.find);
+export const routes = (str, app) => {
+    app.get(`${str}`, Controller.find);
 }
