@@ -56,6 +56,16 @@ export const findCourseEachFaculty_Str = 'SELECT\n' +
     '(SELECT name FROM mdl_course_categories WHERE path LIKE \'/7/9\') AS Name_Scient_LP,\n' +
     '(SELECT SUM(coursecount) FROM mdl_course_categories WHERE path LIKE \'/7/9%\') AS SUM_Scient_LP,\n' +
     '(SELECT name FROM mdl_course_categories WHERE path LIKE \'/7/10\') AS Name_Engineer_LP,\n' +
-    '(SELECT SUM(coursecount) FROM mdl_course_categories WHERE path LIKE \'/7/10%\') AS SUM_Engineer_LP\n'
+    '(SELECT SUM(coursecount) FROM mdl_course_categories WHERE path LIKE \'/7/10%\') AS SUM_Engineer_LP\n';
+
+export const findSumCourse = (year) =>{
+  return `SELECT 
+            year(from_unixtime(timecreated)) as yearShow,
+            COUNT(timecreated) as countCourse
+            FROM mdl_course
+            WHERE year(from_unixtime(timecreated)) BETWEEN 2016 AND ${year}
+            GROUP BY yearShow`
+};
+
 
     

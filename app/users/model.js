@@ -2,6 +2,7 @@ import {
   selectYear,
   findAllYearValue
 } from "./UserView/queryStr/findChooseYear";
+import {sumEachYear} from './UserView/queryStr/findSumEnyYear'
 import {
   findAllMonthValue,
   findChooseYearAndMonth
@@ -77,6 +78,17 @@ const userModel = {
         });
       });
     });
+  },
+  findSumEachYear(req,res,year){
+    req.getConnection((err,connection) =>{
+      if (err) return err;
+      connection.query(sumEachYear(year),(err,result) =>{
+        if (err) return err;
+        res.status(200).json({
+          result
+        })
+      })
+    })
   }
 };
 export default userModel;

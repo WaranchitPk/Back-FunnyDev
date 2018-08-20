@@ -15,4 +15,7 @@ export const routes = (str, app) => {
   //show day data and countData -- User Use
   app.get(`${str}/useruse/findMonth/:year/:month`, Controller.UserUseFindDayData);
 
+  //show Sum Each Year
+  app.get(`${str}/userview/findSum/:year`,Controller.findSumEachYear)
+
 };

@@ -23,6 +23,10 @@ const UserController = {
   UserUseFindDayData(req, res) {
     const { year, month } = req.params;
     Model.UserUsefindDayData(req, res, year, month);
+  },
+  findSumEachYear(req,res){
+    const {year} = req.params;
+    Model.findSumEachYear(req,res,year)
   }
 };
 export default UserController;
