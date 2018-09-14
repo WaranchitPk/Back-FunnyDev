@@ -52,6 +52,7 @@ const CoursesModel = {
       if (err) return err;
       connection.query(changeShowTrain(year,id), (err, result) => {
         if (err) return err;
+        console.log(result)
         res.status(200).json({
           result
         });
