@@ -2,14 +2,14 @@ import {
   selectYear,
   findAllYearValue
 } from "./UserView/queryStr/findChooseYear";
-import {sumEachYear} from './UserView/queryStr/findSumEnyYear'
+import {sumEachYear as UserViewTrain} from './UserView/queryStr/findSumEnyYear'
 import {
   findAllMonthValue,
   findChooseYearAndMonth
 } from "./UserView/queryStr/findChooseMonth";
 import { UserUseSelectYear } from "./UserUse/queryStr/findChooseYear";
 import { UserUsefindChooseYearAndMonth } from "./UserUse/queryStr/findChooseMonth";
-
+import { sumEachYear } from './UserUse/queryStr/findSumEnyYear'
 const userModel = {
   // UserView
   UserViewFindMonthData(req, res, year) {
@@ -23,7 +23,18 @@ const userModel = {
       });
     });
   },
-  findYearData(req, res) {
+    findSumEachYearUserUse(req,res,year){
+        req.getConnection((err,connection) =>{
+            if (err) return err;
+            connection.query(sumEachYear(year),(err,result) =>{
+                if (err) return err;
+                res.status(200).json({
+                    result
+                })
+            })
+        })
+    },
+    findYearData(req, res) {
     req.getConnection((err, connection) => {
       if (err) return err;
       connection.query(findAllYearValue, (err, result) => {
@@ -82,7 +93,7 @@ const userModel = {
   findSumEachYear(req,res,year){
     req.getConnection((err,connection) =>{
       if (err) return err;
-      connection.query(sumEachYear(year),(err,result) =>{
+      connection.query(UserViewTrain(year),(err,result) =>{
         if (err) return err;
         res.status(200).json({
           result

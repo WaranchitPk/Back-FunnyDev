@@ -24,11 +24,11 @@ app.get('/',(req,res) =>{
     res.send('Hello')
 })
 // check Connection Db
-const con = mysql.createConnection(dbOptions);
-con.connect((err) =>{
-    if  (err) throw err;
-    console.log('connected success')
-});
+// const con = mysql.createConnection(dbOptions);
+// con.connect((err) =>{
+//     if  (err) throw err;
+//     console.log('connected success')
+// });
 
 
 

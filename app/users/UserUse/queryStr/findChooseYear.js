@@ -11,7 +11,7 @@ const findYear2017Sql = `SELECT
                             COUNT(distinct tb.userid,from_unixtime(tb.timecreated,'%d')) as countMonth,
                             MONTH(from_unixtime(tb.timecreated)) as month
                          FROM mdl_logstore_standard_log as tb
-                         WHERE MONTH(from_unixtime(tb.timecreated)) BETWEEN 06 AND 12
+                         WHERE tb.timecreated between UNIX_TIMESTAMP('2017-01-01') and UNIX_TIMESTAMP('2017-12-31')
                          GROUP BY month`;
 
 const findOrtherYearSql = (year) => {
